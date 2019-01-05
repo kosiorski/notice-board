@@ -10,5 +10,5 @@ public interface CategoryService {
 
     List<Category> findAll();
 
-    void save(Category Category);
+    Category save(Category category);
 }

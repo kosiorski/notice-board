@@ -14,5 +14,5 @@ public interface CommentService {
 
   List<Comment> findByAdId(Long id);
 
-  void save(Comment comment);
+  Comment save(Comment comment);
 }

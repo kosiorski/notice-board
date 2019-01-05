@@ -11,9 +11,7 @@ public interface UserService {
 
     User findByLogin(String login);
 
-    void save(User user);
+    User save(User user);
 
-    List<User> findByAd(Ad ad);
-
-    List<User> findByAdId(Long id);
+    User findByAdId(Long id);
 }

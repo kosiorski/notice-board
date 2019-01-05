@@ -5,4 +5,6 @@ import org.springframework.stereotype.Repository;
 import pl.kosiorski.model.Role;
 
 @Repository
-public interface RoleRepository extends JpaRepository<Role, Long> {}
+public interface RoleRepository extends JpaRepository<Role, Long> {
+
+}
