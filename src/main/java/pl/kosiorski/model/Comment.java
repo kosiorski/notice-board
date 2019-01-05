@@ -19,7 +19,9 @@ public class Comment {
 
   @CreationTimestamp private LocalDateTime created;
 
-  @ManyToOne private User user;
+  @ManyToOne
+  @JoinColumn(name = "user_id")
+  private User user;
 
   @ManyToOne
   @JoinColumn(name = "ad_id")
