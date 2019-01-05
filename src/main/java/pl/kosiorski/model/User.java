@@ -1,6 +1,5 @@
 package pl.kosiorski.model;
 
-
 import javax.persistence.*;
 import javax.validation.constraints.Email;
 import javax.validation.constraints.NotEmpty;
@@ -37,69 +36,80 @@ public class User {
   private Set<Role> roles;
 
   @OneToMany(mappedBy = "user")
-  private List<Ad> tasks = new ArrayList<>();
+  private List<Ad> ads = new ArrayList<>();
 
-    public Long getId() {
-        return id;
-    }
+  @OneToMany(mappedBy = "user")
+  private List<Comment> comments = new ArrayList<>();
 
-    public void setId(Long id) {
-        this.id = id;
-    }
+  public Long getId() {
+    return id;
+  }
 
-    public String getLogin() {
-        return login;
-    }
+  public void setId(Long id) {
+    this.id = id;
+  }
 
-    public void setLogin(String login) {
-        this.login = login;
-    }
+  public String getLogin() {
+    return login;
+  }
 
-    public String getPassword() {
-        return password;
-    }
+  public void setLogin(String login) {
+    this.login = login;
+  }
 
-    public void setPassword(String password) {
-        this.password = password;
-    }
+  public String getPassword() {
+    return password;
+  }
 
-    public String getEmail() {
-        return email;
-    }
+  public void setPassword(String password) {
+    this.password = password;
+  }
 
-    public void setEmail(String email) {
-        this.email = email;
-    }
+  public String getEmail() {
+    return email;
+  }
 
-    public String getFirstName() {
-        return firstName;
-    }
+  public void setEmail(String email) {
+    this.email = email;
+  }
 
-    public void setFirstName(String firstName) {
-        this.firstName = firstName;
-    }
+  public String getFirstName() {
+    return firstName;
+  }
 
-    public String getLastName() {
-        return lastName;
-    }
+  public void setFirstName(String firstName) {
+    this.firstName = firstName;
+  }
 
-    public void setLastName(String lastName) {
-        this.lastName = lastName;
-    }
+  public String getLastName() {
+    return lastName;
+  }
 
-    public Set<Role> getRoles() {
-        return roles;
-    }
+  public void setLastName(String lastName) {
+    this.lastName = lastName;
+  }
 
-    public void setRoles(Set<Role> roles) {
-        this.roles = roles;
-    }
+  public Set<Role> getRoles() {
+    return roles;
+  }
 
-    public List<Ad> getTasks() {
-        return tasks;
-    }
+  public void setRoles(Set<Role> roles) {
+    this.roles = roles;
+  }
 
-    public void setTasks(List<Ad> tasks) {
-        this.tasks = tasks;
-    }
+  public List<Ad> getAds() {
+    return ads;
+  }
+
+  public void setAds(List<Ad> ads) {
+    this.ads = ads;
+  }
+
+  public List<Comment> getComments() {
+    return comments;
+  }
+
+  public void setComments(List<Comment> comments) {
+    this.comments = comments;
+  }
 }

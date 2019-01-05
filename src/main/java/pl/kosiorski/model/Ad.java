@@ -6,6 +6,8 @@ import pl.kosiorski.model.enums.EnumStatus;
 import javax.persistence.*;
 import javax.validation.constraints.NotBlank;
 import java.time.LocalDateTime;
+import java.util.ArrayList;
+import java.util.List;
 
 @Entity
 @Table(name = "ads")
@@ -16,16 +18,21 @@ public class Ad {
   @Column(name = "ad_id")
   private Long id;
 
-  @NotBlank
-  private String title;
+  @NotBlank private String title;
 
-  @NotBlank
-  private String description;
+  @NotBlank private String description;
 
   private String urlImageAddress;
 
-  @CreationTimestamp
-  private LocalDateTime created;
+  @CreationTimestamp private LocalDateTime created;
+
+  @ManyToOne private User user;
+
+  @OneToMany(mappedBy = "ad")
+  private List<Comment> comments;
+
+  @OneToMany(mappedBy = "ad")
+  private List<Category> categories;
 
   private EnumStatus status;
 
@@ -67,6 +74,30 @@ public class Ad {
 
   public void setCreated(LocalDateTime created) {
     this.created = created;
+  }
+
+  public User getUser() {
+    return user;
+  }
+
+  public void setUser(User user) {
+    this.user = user;
+  }
+
+  public List<Comment> getComments() {
+    return comments;
+  }
+
+  public void setComments(List<Comment> comments) {
+    this.comments = comments;
+  }
+
+  public List<Category> getCategories() {
+    return categories;
+  }
+
+  public void setCategories(List<Category> categories) {
+    this.categories = categories;
   }
 
   public EnumStatus getStatus() {

@@ -1,6 +1,5 @@
 package pl.kosiorski.model;
 
-
 import org.hibernate.annotations.CreationTimestamp;
 
 import javax.persistence.*;
@@ -11,38 +10,58 @@ import java.time.LocalDateTime;
 @Table(name = "comments")
 public class Comment {
 
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "comment_id")
-    private Long id;
+  @Id
+  @GeneratedValue(strategy = GenerationType.IDENTITY)
+  @Column(name = "comment_id")
+  private Long id;
 
-    @NotBlank
-    private String content;
+  @NotBlank private String content;
 
-    @CreationTimestamp
-    private LocalDateTime created;
+  @CreationTimestamp private LocalDateTime created;
 
-    public Long getId() {
-        return id;
-    }
+  @ManyToOne private User user;
 
-    public void setId(Long id) {
-        this.id = id;
-    }
+  @ManyToOne
+  @JoinColumn(name = "ad_id")
+  private Ad ad;
 
-    public String getContent() {
-        return content;
-    }
+  public Long getId() {
+    return id;
+  }
 
-    public void setContent(String content) {
-        this.content = content;
-    }
+  public void setId(Long id) {
+    this.id = id;
+  }
 
-    public LocalDateTime getCreated() {
-        return created;
-    }
+  public String getContent() {
+    return content;
+  }
 
-    public void setCreated(LocalDateTime created) {
-        this.created = created;
-    }
+  public void setContent(String content) {
+    this.content = content;
+  }
+
+  public LocalDateTime getCreated() {
+    return created;
+  }
+
+  public void setCreated(LocalDateTime created) {
+    this.created = created;
+  }
+
+  public User getUser() {
+    return user;
+  }
+
+  public void setUser(User user) {
+    this.user = user;
+  }
+
+  public Ad getAd() {
+    return ad;
+  }
+
+  public void setAd(Ad ad) {
+    this.ad = ad;
+  }
 }
