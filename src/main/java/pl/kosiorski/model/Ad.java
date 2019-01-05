@@ -16,13 +16,16 @@ public class Ad {
   @Column(name = "ad_id")
   private Long id;
 
-  @NotBlank private String title;
+  @NotBlank
+  private String title;
 
-  @NotBlank private String description;
+  @NotBlank
+  private String description;
 
   private String urlImageAddress;
 
-  @CreationTimestamp private LocalDateTime created;
+  @CreationTimestamp
+  private LocalDateTime created;
 
   private EnumStatus status;
 
