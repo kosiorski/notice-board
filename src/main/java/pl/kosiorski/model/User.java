@@ -5,7 +5,6 @@ import javax.validation.constraints.Email;
 import javax.validation.constraints.NotEmpty;
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Set;
 
 @Entity
 @Table(name = "users")
@@ -33,7 +32,7 @@ public class User {
       name = "user_role",
       joinColumns = @JoinColumn(name = "user_id"),
       inverseJoinColumns = @JoinColumn(name = "role_id"))
-  private Set<Role> roles;
+  private List<Role> roles;
 
   @OneToMany(mappedBy = "user")
   private List<Ad> ads = new ArrayList<>();
@@ -89,11 +88,11 @@ public class User {
     this.lastName = lastName;
   }
 
-  public Set<Role> getRoles() {
+  public List<Role> getRoles() {
     return roles;
   }
 
-  public void setRoles(Set<Role> roles) {
+  public void setRoles(List<Role> roles) {
     this.roles = roles;
   }
 
