@@ -1,5 +1,7 @@
 package pl.kosiorski.model;
 
+import org.springframework.security.crypto.bcrypt.BCrypt;
+
 import javax.persistence.*;
 import javax.validation.constraints.Email;
 import javax.validation.constraints.NotEmpty;
@@ -23,22 +25,23 @@ public class User {
 
   @Email @NotEmpty private String email;
 
-  @NotEmpty private String firstName;
+  private String firstName;
 
-  @NotEmpty private String lastName;
+  private String lastName;
 
-  @ManyToMany
-  @JoinTable(
-      name = "user_role",
-      joinColumns = @JoinColumn(name = "user_id"),
-      inverseJoinColumns = @JoinColumn(name = "role_id"))
-  private List<Role> roles;
+  @ManyToOne
+  @JoinColumn(name = "role_id")
+  private Role role;
 
   @OneToMany(mappedBy = "user")
   private List<Ad> ads = new ArrayList<>();
 
   @OneToMany(mappedBy = "user")
   private List<Comment> comments = new ArrayList<>();
+
+  public boolean passwordMatches(String plainTextPassword) {
+    return BCrypt.checkpw(plainTextPassword, this.password);
+  }
 
   public Long getId() {
     return id;
@@ -61,8 +64,18 @@ public class User {
   }
 
   public void setPassword(String password) {
-    this.password = password;
+    // NOTE w przypadku gdy hasło jest pustym stringiem/nullem, funkcja hashpw zadziała i wygeneruje
+    // nie-nullowego hasha
+    // chcemy tego uniknąć:)
+    this.password =
+        password == null || password.isEmpty()
+            ? password
+            : BCrypt.hashpw(password, BCrypt.gensalt());
   }
+
+  //  public void setPassword(String password) {
+  //    this.password = password;
+  //  }
 
   public String getEmail() {
     return email;
@@ -88,12 +101,12 @@ public class User {
     this.lastName = lastName;
   }
 
-  public List<Role> getRoles() {
-    return roles;
+  public Role getRole() {
+    return role;
   }
 
-  public void setRoles(List<Role> roles) {
-    this.roles = roles;
+  public void setRole(Role role) {
+    this.role = role;
   }
 
   public List<Ad> getAds() {

@@ -6,7 +6,6 @@ import pl.kosiorski.model.enums.EnumStatus;
 import javax.persistence.*;
 import javax.validation.constraints.NotBlank;
 import java.time.LocalDateTime;
-import java.util.ArrayList;
 import java.util.List;
 
 @Entity

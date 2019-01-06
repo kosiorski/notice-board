@@ -29,15 +29,15 @@ public class CommentServiceImpl implements CommentService {
     return commentRepository.findAll();
   }
 
-  @Override
-  public List<Comment> findByUserId(Long id) {
-    return commentRepository.findByUserId(id);
-  }
-
-  @Override
-  public List<Comment> findByAdId(Long id) {
-    return commentRepository.findByAdId(id);
-  }
+//  @Override
+//  public List<Comment> findByUserId(Long id) {
+//    return commentRepository.findByUserId(id);
+//  }
+//
+//  @Override
+//  public List<Comment> findByAdId(Long id) {
+//    return commentRepository.findByAdId(id);
+//  }
 
   @Override
   public Comment save(Comment comment) {

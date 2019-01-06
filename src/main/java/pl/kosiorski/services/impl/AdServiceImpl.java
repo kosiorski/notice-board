@@ -1,12 +1,14 @@
 package pl.kosiorski.services.impl;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 import pl.kosiorski.model.Ad;
 import pl.kosiorski.repository.AdRepository;
 import pl.kosiorski.services.AdService;
 
 import java.util.List;
 
+@Service
 public class AdServiceImpl implements AdService {
 
   private final AdRepository adRepository;

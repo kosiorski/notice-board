@@ -1,7 +1,6 @@
 package pl.kosiorski.services;
 
 import pl.kosiorski.model.Ad;
-import pl.kosiorski.model.Comment;
 
 import java.util.List;
 

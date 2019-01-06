@@ -1,9 +1,9 @@
 package pl.kosiorski.services;
 
-import pl.kosiorski.model.Ad;
 import pl.kosiorski.model.User;
 
 import java.util.List;
+
 
 public interface UserService {
 
@@ -13,5 +13,5 @@ public interface UserService {
 
     User save(User user);
 
-    User findByAdId(Long id);
+//    User findByAdId(Long id);
 }

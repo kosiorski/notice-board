@@ -10,9 +10,9 @@ public interface CommentService {
 
   List<Comment> findAll();
 
-  List<Comment> findByUserId(Long id);
-
-  List<Comment> findByAdId(Long id);
+//  List<Comment> findByUserId(Long id);
+//
+//  List<Comment> findByAdId(Long id);
 
   Comment save(Comment comment);
 }
