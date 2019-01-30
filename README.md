@@ -1,7 +1,7 @@
 # notice-board
 
 
-Full REST application for adding advertisements by users.
+Simple RESTful application for adding advertisements by users.
 
 Used stack:
 
